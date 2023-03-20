@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+set -e
+
 PROJECT_ROOT="$(pwd)/$(dirname "$0")/../"
 
 cd $(mktemp -d)
 
-git clone git@github.com:qdrant/docs.git
+git clone https://github.com/qdrant/docs.git
 cd docs
 
 LATEST_VERSION=$(ls -1 qdrant/ | sort -V | tail -n 1)
