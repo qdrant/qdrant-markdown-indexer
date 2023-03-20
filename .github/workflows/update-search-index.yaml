@@ -25,5 +25,9 @@ jobs:
           poetry config virtualenvs.create false
           poetry install --no-interaction --no-ansi
       - name: crawl and index
+        env: # Or as an environment variable
+          QDRANT_HOST: ${{ secrets.QDRANT_HOST }}
+          QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           bash -x tools/index_qdrant_docs.sh
