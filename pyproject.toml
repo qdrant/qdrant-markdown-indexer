@@ -8,7 +8,6 @@ authors = ["Andrey Vasnetsov <andrey@vasnetsov.com>"]
 python = ">=3.8,<3.12"
 mistletoe = "^1.0.1"
 openai = "^0.27.2"
-beautifulsoup4 = "^4.11.2"
 qdrant-client = "^1.1.0"
 python-dotenv = "^1.0.0"
 
