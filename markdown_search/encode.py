@@ -33,7 +33,7 @@ def read_records(filename: str) -> Iterable[dict]:
             json_obj = json.loads(line)
             yield {
                 "id": f"{json_obj.get('file')}-{json_obj.get('url')}",
-                "text": json_obj.get("text"),
+                "text": json_obj.get("context"),
                 "metadata": {
                     "document_id": json_obj.get("file"),
                     "url": json_obj.get("url"),
