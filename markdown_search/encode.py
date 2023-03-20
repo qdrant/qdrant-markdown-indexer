@@ -30,7 +30,16 @@ def iter_batch(iterable: Iterable[str], batch_size: int) -> Iterable[List[str]]:
 def read_records(filename: str) -> Iterable[dict]:
     with open(filename, 'r') as f:
         for line in f:
-            yield json.loads(line)
+            json_obj = json.loads(line)
+            yield {
+                "id": f"{json_obj.get('file')}-{json_obj.get('url')}",
+                "text": json_obj.get("text"),
+                "metadata": {
+                    "document_id": json_obj.get("file"),
+                    "url": json_obj.get("url"),
+                },
+                "created_at": None,
+            }
 
 
 def read_text_records(filename: str, reader=read_records) -> Iterable[str]:
